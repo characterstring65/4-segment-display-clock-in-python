@@ -1,4 +1,4 @@
-• # 4-Segment Display Clock in Python (Pure 4-Segment Matrix). Pure 4-Segment Fluid Design Clock & Ultra-Compact Gadget Concept
+# 4-Segment Display Clock in Python (Pure 4-Segment Matrix). Pure 4-Segment Fluid Design Clock & Ultra-Compact Gadget Concept
 
 An elegant, minimalistic desktop clock built in Python. It uses a custom, fluid 4-segment numeric matrix to display time. It is absolutely impossible to build a true and perfect matching type with less than 10 segments pro number. That would also be an expensiver one counting that those segments need to fill in seamless next to each other. Unlike traditional boxy or geometric 4-segment attempts (like the V6 or Hourglass designs), this concept uses a unique combination of organic curves, calligraphic strokes, and an italic shear transformation. It achieves legibility with the absolute mathematical minimum number of segments required to distinguish 10 digits.
 
