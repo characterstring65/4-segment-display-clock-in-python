@@ -38,7 +38,7 @@ This ensures excellent ergonomics: anyone reading the clock—such as a scientis
 
 ### The Only Exception: The Number Zero ('0')
 The number **zero** is the only exception to the standard layout:
-* It is displayed at **half-height**.
+* It is displayed direct on the base and at **half-height**.
 * It uses a more open, minimalist outline.
 * However, it still retains its correct, recognizable shape.
 
