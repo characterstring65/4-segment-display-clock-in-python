@@ -106,6 +106,23 @@ A direct-view SMD **Status LED** (e.g., a green continuity indicator) can be mou
 On ultra-compact devices like a calculator watch, a traditional 10-key pad (`0`–`9`) forces keys to become impossibly tiny. By mapping **4 physical input buttons** 1-to-1 to segments **S1–S4**, the user literally "draws" each digit directly on screen—saving **6 buttons** on the housing.
 * Once switched into Calculator Mode, the watch's existing **Mode Switch** button doubles as the permanent **"Confirm / Next Digit" (Enter)** key. With fewer cutouts, buttons can be larger, more tactile, and better sealed against dust and moisture.
 
+### 🎛️ Ultra-Compact Service Interface: The 1-Digit Tactile Window ("S2-First Protocol")
+
+For embedded industrial hardware—such as a heat exchanger, pump controller, or sealed sensor module—where a full display and keypad are unnecessary or too bulky, this architecture scales down to an iconic, recognizable micro-interface: **a single 1-digit LCD window that itself acts as a physical push-button (S2), partially surrounded by three miniature keys (S1, S3, and S4).**
+
+Because the clickable display window (**S2**) serves both as a visual digit segment and as the **Confirm / Enter** key, a simple sequence rule eliminates any ambiguity without needing a fifth button:
+
+#### How the "S2-First" Input Logic Works:
+1. **Digits Containing Segment S2 (`4, 5, 6, 8, 9`):**
+   * When the screen is blank and ready for input, the user **must press the LCD window (S2) first**. Because the display was empty, the controller registers this initial press as turning segment **S2** on.
+   * Next, the user presses the remaining required segment keys around the bezel (e.g., S4 for `4`, or S1 and S3 for `5`) until the complete digit appears on screen.
+   * Once the digit is fully formed, pressing the **LCD window (S2) a second time** confirms and enters the number.
+2. **Digits Without Segment S2 (`0, 1, 2, 3, 7`):**
+   * Because **S2** is not part of these digits, the user starts by pressing the surrounding keys (**S1**, **S3**, or **S4**) in any order to build the character on screen.
+   * Once the digit is complete, a single press on the **LCD window (S2)** locks in the value (without illuminating S2) and advances to the next digit.
+
+#### Blink-Encoded Data Output
+To read values back from the unit on this single-digit window, the system communicates via **timed blinking patterns**—sequentially flashing multi-digit readings one character at a time, using distinct blink rhythms to separate digits, indicate decimal points, or signal system status codes. Combined with the 4-wire single-digit LCD architecture, this creates a rugged, virtually zero-footprint service port that is instantly recognizable to technicians.
 ### 📐 Flip-Up Mechanical Layout (8 mm Substrate Extension)
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
