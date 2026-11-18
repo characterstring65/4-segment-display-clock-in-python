@@ -126,7 +126,8 @@ Building a prototype at home does not require custom factory glass. Here are fou
 4. **Driving from a Standard 7-Segment Clock IC (No Code Needed):**  
    Want to retrofit an old digital alarm clock or `CD4511` / `74LS47` driver chip? Connect 7-segment outputs `b`, `d`, and `f` directly to **S4**, **S1**, and **S2**. For **S3** (active on `2, 3, 5, 7, 8, 9`, omitting `0` and `6`), use a single tiny logic gate combining lines `a`, `b`, and `e`:
    $$	ext{S3} = a \land (b \lor 
-eg e)$$                **S3 = a AND (b OR NOT e)**
+eg e)$$
+**S3 = a AND (b OR NOT e)**
    *(Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
 
 ---
