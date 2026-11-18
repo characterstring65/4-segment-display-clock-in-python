@@ -111,6 +111,23 @@ Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the fi
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
 * **2 mm Transition Bridge:** Provides a clean, borderless exit from the chassis where all matrix traces route cleanly in parallel to the edge pads.
 
+### 🔬 Specialized Architecture: 4-Wire "Zero-COM" Single-Digit Dual-Layer LCD
+
+For ultra-miniature, single-digit applications (such as a compact logic probe tip, a micro-wearable ring indicator, or a gear position readout) where physical thickness or harsh operating environments prohibit mounting a local driver IC or PCB behind the glass, a single complete digit (`0`–`9`) can be driven using **exclusively 4 wires**—achieving a 1:1 ratio between segments and pins with zero onboard electronics.
+
+#### Technical Topology (Cross-Connected Dual-Layer Matrix)
+Normally, driving 4 independent LCD segments requires at least 5 connections (4 segment lines + 1 Common backplane). By stacking two thin LCD cells (**Layer A** and **Layer B**) and cross-wiring the electrodes in a closed loop across 4 external terminals (**W1, W2, W3, W4**), the dedicated `COM` line is completely eliminated:
+
+* **Segment S1 (Layer A):** Connected between **W1** (Segment) and **W2** (Common).
+* **Segment S2 (Layer B):** Connected between **W2** (Segment) and **W3** (Common).
+* **Segment S3 (Layer A):** Connected between **W3** (Segment) and **W4** (Common).
+* **Segment S4 (Layer B):** Connected between **W4** (Segment) and **W1** (Common).
+
+#### Key Engineering Advantages for Specific Use Cases:
+* **Zero Onboard Electronics:** Splitting the 4 segments across two glass layers prevents trace intersections on the ITO substrates without requiring any external driver IC, decoupling capacitors, or PCB substrate at the display end. All 4 wires connect directly to the glass edge.
+* **True Solid-Black Overlaps:** Because segments **S2** and **S4** reside on separate glass layers from **S1** and **S3**, overlapping strokes can physically cross without requiring a dithered checkerboard mask, yielding 100% solid-black contrast.
+* **Extreme Environmental & Spatial Resilience:** While a single-layer LCD paired with an ultra-small 6-pin microcontroller (using a 2- or 3-wire serial interface) offers slightly lower unit cost in standard assemblies, this passive 4-wire glass architecture is the superior choice when **sub-millimeter profile thickness** (e.g., laminated smartcards or curved enclosures) or **extreme temperature/radiation tolerance** makes silicon driver chips unviable.
+
 ---
 
 ## 5. Maker's Corner: Fun & Low-Cost DIY Tips
