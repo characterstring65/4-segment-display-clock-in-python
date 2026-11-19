@@ -36,17 +36,25 @@ The number **zero (`0`)** is the sole structural exception: it sits directly on 
 
 ## 2. Python Desktop Simulators
 
-This repository includes interactive Python/Tkinter simulations to demonstrate both the desktop aesthetic and real-world micro-LCD legibility:
+This repository includes interactive Python/Tkinter simulations to demonstrate desktop aesthetics, real-world micro-LCD legibility, and ultra-minimalist touch/button interfaces:
 
-### 🖥️ Main Fluid Desktop Clock (`pure_4s_glijdende_klok.py` / `clock.py`)
+### 🖥️ Main Fluid Desktop Clock (`clock.py`)
 * **Borderless Floating UI:** Streamlined window with per-pixel background transparency.
 * **Always-on-Top & Draggable:** Left-click and drag anywhere to reposition; right-click to exit instantly.
 
 ### 📱 Scalable Micro-LCD Simulator (`LCD_like_python_clock.py` & `micro_lcd_checkerboard_clock.py`)
 To give designers and engineers a realistic impression of real-world hardware legibility, these simulators render the display in the classic greenish-gray tint of a passive reflective LCD, scalable from **4 mm to 12 mm** digit heights.
 * **Controls:** Use the **mouse scroll wheel** (or `+` / `-` keys) to resize dynamically; left-click to drag; right-click or press `Esc` to close.
-* **Checkerboard Overlap Edition (`micro_lcd_checkerboard_clock.py`):** Simulates the **50% dithered checkerboard overlap** between segments **S2** and **S4** (as well as the inner accent stroke of **S4**), rendering single-active overlaps in soft light gray and dual-active overlaps (`4`, `8`, `9`) in solid black.
+* **Checkerboard Overlap Edition (`micro_lcd_checkerboard_clock.py`):** Simulates the **50% dithered checkerboard overlap** between segments **S2** and **S4** (as well as the short inner accent stroke of **S4**, intentionally rendered with the same light-gray property to optimize visual balance), rendering single-active overlaps in soft light gray and dual-active overlaps (`4`, `8`, `9`) in solid black. This visual appearance represents the direct result of the simplified, single-layer manufacturing approach for the 4-segment display digit design.
 * **Note on Monitor Resolution:** At tiny scales (4–5 mm), standard computer monitors hit their pixel-grid (PPI) limit, making curves appear slightly pixelated up close—an artifact that does **not** occur on razor-sharp custom-etched LCD glass. To judge true physical legibility, scale the window down to ~6–8 mm and view your monitor from roughly **1 to 1.5 meters (3–5 feet)** away.
+
+### ⌚ "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
+An interactive software simulation demonstrating how this 4-segment matrix solves the frustration of dialing phone numbers on tiny smartwatch or wrist-phone touchscreens—especially for users with larger fingers.
+* **Symmetrical 2×2 Spatial Layout:** Divides the input area into four equal-sized, oversized touch zones mirroring the physical geometry of the digits: **Top-Left (`S2 / Confirm` clickable 1-digit preview window)**, **Top-Right (`S3`)**, **Bottom-Left (`S1`)**, and **Bottom-Right (`S4`)**.
+* **Effortless "S2-First" Touch Workflow:** Tapping the Top-Left preview window when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the digit is drawn, tapping that same preview window again confirms and appends it to the main phone number readout.
+
+### 🔘 1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`)
+An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4`, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
 
 ### Installation & Running
 Tkinter comes pre-installed with standard Python distributions:
@@ -107,40 +115,21 @@ On ultra-compact devices like a calculator watch, a traditional 10-key pad (`0`�
 * Once switched into Calculator Mode, the watch's existing **Mode Switch** button doubles as the permanent **"Confirm / Next Digit" (Enter)** key. With fewer cutouts, buttons can be larger, more tactile, and better sealed against dust and moisture.
 
 ### 🎛️ Ultra-Compact Service Interface: The 1-Digit Tactile Window ("S2-First Protocol")
+For embedded industrial hardware—such as a heat exchanger, pump controller, or sealed sensor module—where a full display and keypad are unnecessary or too bulky, this architecture scales down to an iconic micro-interface: **a single 1-digit LCD window that itself acts as a physical push-button (S2), partially surrounded by three miniature keys (S1, S3, and S4).**
 
-For embedded industrial hardware—such as a heat exchanger, pump controller, or sealed sensor module—where a full display and keypad are unnecessary or too bulky, this architecture scales down to an iconic, recognizable micro-interface: **a single 1-digit LCD window that itself acts as a physical push-button (S2), partially surrounded by three miniature keys (S1, S3, and S4).**
+* **Digits Containing Segment S2 (`4, 5, 6, 8, 9`):** When the screen is blank, the user **must press the LCD window (S2) first** to turn S2 on, press the remaining segment keys around the bezel, and press the **LCD window (S2) a second time** to confirm.
+* **Digits Without Segment S2 (`0, 1, 2, 3, 7`):** The user starts by pressing the surrounding keys (**S1**, **S3**, or **S4**) in any order, then presses the **LCD window (S2)** once to lock in the digit.
+* **Blink-Encoded Data Output:** The unit communicates multi-digit values and status codes back to the user via timed blinking patterns on the single window.
 
-#### Blink-Encoded Data Output
-To read values back from the unit on this single-digit window, the system communicates via **timed blinking patterns**—sequentially flashing multi-digit readings one character at a time, using distinct blink rhythms to separate digits, indicate decimal points, or signal system status codes. Combined with the 4-wire single-digit LCD architecture, this creates a rugged, virtually zero-footprint service port that is instantly recognizable to technicians.
+### 🔘 Ultimate Miniaturization: 1-Button "Single-Window Scan & y/n Confirm"
+For ultra-micro systems—such as sealed medical sensors, smart implants, or microscopic industrial nodes—where there is physically no room for even a single extra button around the bezel, the entire two-way interface collapses into **one clickable 1-digit LCD window**:
 
-Because the clickable display window (**S2**) serves both as a visual digit segment and as the **Confirm / Enter** key, a simple sequence rule eliminates any ambiguity without needing a fifth button:
-
-#### How the "S2-First" Input Logic Works:
-1. **Digits Containing Segment S2 (`4, 5, 6, 8, 9`):**
-   * When the screen is blank and ready for input, the user **must press the LCD window (S2) first**. Because the display was empty, the controller registers this initial press as turning segment **S2** on.
-   * Next, the user presses the remaining required segment keys around the bezel (e.g., S4 for `4`, or S1 and S3 for `5`) until the complete digit appears on screen.
-   * Once the digit is fully formed, pressing the **LCD window (S2) a second time** confirms and enters the number.
-2. **Digits Without Segment S2 (`0, 1, 2, 3, 7`):**
-   * Because **S2** is not part of these digits, the user starts by pressing the surrounding keys (**S1**, **S3**, or **S4**) in any order to build the character on screen.
-   * Once the digit is complete, a single press on the **LCD window (S2)** locks in the value (without illuminating S2) and advances to the next digit.
-
-### ⌚ Smartwatch & Software App: "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
-
-For software developers building apps for smartwatches, wrist-mounted phones, or tiny wearable touchscreens, dialing a phone number on a traditional 10-key numeric keypad is notoriously frustrating—especially for users with larger fingers. While voice dialing and tiny T9 keypads exist, implementing this 4-segment matrix purely in software offers a remarkably **charming, tactile, and error-free alternative**:
-
-* **Symmetrical 2×2 Spatial Layout:** The interactive simulator (`wrist_phone_dialer.py`) divides the input area into **four equal-sized, oversized touch zones** that directly mirror the physical geometry of the digits themselves:
-  * **Top-Left (`S2 / Confirm`):** The active 1-digit preview window itself, framed by a clear dashed border to indicate it is a clickable button.
-  * **Top-Right (`S3`):** Upper horizontal bar.
-  * **Bottom-Left (`S1`):** Lower-left fluid curve.
-  * **Bottom-Right (`S4`):** Right-side vertical stem.
-* **Intuitive "S2-First" Touch Workflow:** Tapping the **Top-Left preview window** when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the desired digit is drawn using the four large zones, tapping that same preview window again confirms the digit and pushes it to the main multi-digit phone number display at the top.
-
-Run the script with:
-```bash
-python wrist_phone_dialer (1).py
-```
-* **Massive Touch Targets:** Instead of cramming 10 tiny buttons onto a 1.5-inch watch face, the screen is divided into **4 generous, oversized touch zones** corresponding to segments **S1, S2, S3, and S4** (or using the **S2-First clickable display** gesture directly on the active digit).
-* **Effortless "Draw-to-Dial":** Users simply tap or swipe the large segment zones to draw each digit of the phone number in real time. Because the touch targets are huge, mis-taps are virtually eliminated—finally letting users dial a number comfortably on their wrist without needing a stylus or pin-point accuracy.
+1. **Full 4-Segment Scan & Non-Blocking Loop:** In input mode, the controller cycles sequentially through all remaining inactive segments (`S1` → `S2` → `S3` → `S4`). Pressing the LCD window while a segment blinks locks it in place.
+2. **Visual `y` / `n` Confirmation with Auto-Resume:** Once a valid digit (`0`–`9`) is formed and a full scan pass completes, the window alternates between two native confirmation glyphs:
+   * **`S1` + `S2` + `S4` (forms a lowercase `y` for *Yes*):** Blinking together first. Pressing the window during this phase confirms and enters the digit.
+   * **`S2` + `S3` (forms a lowercase `n` for *No*):** Blinking next. Pressing the window clears the current digit so you can re-enter it.
+   * **Seamless Continuation:** If both `y` and `n` are ignored, the interface automatically returns to scanning the remaining segments so you can finish building a multi-stroke digit (such as locking `S1` first, letting `y`/`n` pass, and then adding `S3` to form `2`).
+3. **Continuous Processor Blink Readout:** Once a number is confirmed via `y`, the processor immediately echoes the stored value back by continuously blinking the entered digit(s) on the single window until reset or extended with additional digits.
 
 ### 📐 Flip-Up Mechanical Layout (8 mm Substrate Extension)
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
@@ -148,21 +137,15 @@ Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the fi
 * **2 mm Transition Bridge:** Provides a clean, borderless exit from the chassis where all matrix traces route cleanly in parallel to the edge pads.
 
 ### 🔬 Specialized Architecture: 4-Wire "Zero-COM" Single-Digit Dual-Layer LCD
+For ultra-miniature, single-digit applications where physical thickness or harsh operating environments prohibit mounting a local driver IC or PCB behind the glass, a single complete digit (`0`–`9`) can be driven using **exclusively 4 wires**—achieving a 1:1 ratio between segments and pins with zero onboard electronics.
 
-For ultra-miniature, single-digit applications (such as a compact logic probe tip, a micro-wearable ring indicator, or a gear position readout) where physical thickness or harsh operating environments prohibit mounting a local driver IC or PCB behind the glass, a single complete digit (`0`–`9`) can be driven using **exclusively 4 wires**—achieving a 1:1 ratio between segments and pins with zero onboard electronics.
-
-#### Technical Topology (Cross-Connected Dual-Layer Matrix)
-Normally, driving 4 independent LCD segments requires at least 5 connections (4 segment lines + 1 Common backplane). By stacking two thin LCD cells (**Layer A** and **Layer B**) and cross-wiring the electrodes in a closed loop across 4 external terminals (**W1, W2, W3, W4**), the dedicated `COM` line is completely eliminated:
-
+By stacking two thin LCD cells (**Layer A** and **Layer B**) and cross-wiring the electrodes in a closed loop across 4 external terminals (**W1, W2, W3, W4**), the dedicated `COM` line is eliminated:
 * **Segment S1 (Layer A):** Connected between **W1** (Segment) and **W2** (Common).
 * **Segment S2 (Layer B):** Connected between **W2** (Segment) and **W3** (Common).
 * **Segment S3 (Layer A):** Connected between **W3** (Segment) and **W4** (Common).
 * **Segment S4 (Layer B):** Connected between **W4** (Segment) and **W1** (Common).
 
-#### Key Engineering Advantages for Specific Use Cases:
-* **Zero Onboard Electronics:** Splitting the 4 segments across two glass layers prevents trace intersections on the ITO substrates without requiring any external driver IC, decoupling capacitors, or PCB substrate at the display end. All 4 wires connect directly to the glass edge.
-* **True Solid-Black Overlaps:** Because segments **S2** and **S4** reside on separate glass layers from **S1** and **S3**, overlapping strokes can physically cross without requiring a dithered checkerboard mask, yielding 100% solid-black contrast.
-* **Extreme Environmental & Spatial Resilience:** While a single-layer LCD paired with an ultra-small 6-pin microcontroller (using a 2- or 3-wire serial interface) offers slightly lower unit cost in standard assemblies, this passive 4-wire glass architecture is the superior choice when **sub-millimeter profile thickness** (e.g., laminated smartcards or curved enclosures) or **extreme temperature/radiation tolerance** makes silicon driver chips unviable.
+This passive dual-layer glass design provides true solid-black overlaps without dithered masks and withstands extreme temperatures, radiation, or sub-millimeter profile constraints where silicon driver chips are unviable.
 
 ---
 
@@ -178,14 +161,11 @@ Building a prototype at home does not require custom factory glass. Here are fou
    Gently peel the entire outer reflector foil off the back of a standard reflective LCD and replace it with a piece of **plain white paper or frosted plastic** as a diffuser. Place a small LED at the edge or behind it to turn any passive LCD into a softly backlit screen.
 4. **Driving from a Standard 7-Segment Clock IC (No Code Needed):**  
    Want to retrofit an old digital alarm clock or `CD4511` / `74LS47` driver chip? Connect 7-segment outputs `b`, `d`, and `f` directly to **S4**, **S1**, and **S2**. For **S3** (active on `2, 3, 5, 7, 8, 9`, omitting `0` and `6`), use a single tiny logic gate combining lines `a`, `b`, and `e`:
-   $$	ext{S3} = a \land (b \lor 
-eg e)$$
-**S3 = a AND (b OR NOT e)**
-   *(Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
+   $$\text{S3} = a \land (b \lor \neg e)$$
+   *(i.e., **S3 = a AND (b OR NOT e)** — Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
 
 ---
 
 ## License
 
 This project is licensed under the **MIT License**. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
-
