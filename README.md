@@ -131,6 +131,14 @@ For ultra-micro systems—such as sealed medical sensors, smart implants, or mic
    * **Seamless Continuation:** If both `y` and `n` are ignored, the interface automatically returns to scanning the remaining segments so you can finish building a multi-stroke digit (such as locking `S1` first, letting `y`/`n` pass, and then adding `S3` to form `2`).
 3. **Continuous Processor Blink Readout:** Once a number is confirmed via `y`, the processor immediately echoes the stored value back by continuously blinking the entered digit(s) on the single window until reset or extended with additional digits.
 
+### 🔐 Security Application: Wearable Optical-Contact Key (2FA Access)
+
+Because this fluid 4-segment layout is a rare, proprietary visual language—and is already built into a smart ring, calculator watch, or wrist phone—the wearable itself can double as a **high-security physical access key**:
+
+* **Gold-Plated Data Contact + Optical Camera Readout:** Instead of relying solely on a manual push-button, a miniature **gold-plated contact pad** is placed right next to the 1-digit LCD window. To unlock a door or secure terminal, the user simply presses the ring or watch against a matching docking reader equipped with a tiny optical camera facing the glass.
+* **Two-Way Challenge-Response Handshake:** The lock sends a data prompt (*challenge*) into the wearable through the gold contact pad, and the wearable responds by blinking the cryptographic answer back through the **4 LCD segments (`S1`–`S4`)** to the camera.
+* **Built-In Dual Layer of Security:** Unlike wireless RFID/NFC keys that can be skimmed from a distance, this system requires both **physical contact** and **direct line-of-sight optical verification**—combining the obscurity of an uncommon 4-segment visual encoding with a dynamic, rolling security code.
+
 ### 📐 Flip-Up Mechanical Layout (8 mm Substrate Extension)
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
