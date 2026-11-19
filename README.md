@@ -110,6 +110,9 @@ On ultra-compact devices like a calculator watch, a traditional 10-key pad (`0`�
 
 For embedded industrial hardware—such as a heat exchanger, pump controller, or sealed sensor module—where a full display and keypad are unnecessary or too bulky, this architecture scales down to an iconic, recognizable micro-interface: **a single 1-digit LCD window that itself acts as a physical push-button (S2), partially surrounded by three miniature keys (S1, S3, and S4).**
 
+#### Blink-Encoded Data Output
+To read values back from the unit on this single-digit window, the system communicates via **timed blinking patterns**—sequentially flashing multi-digit readings one character at a time, using distinct blink rhythms to separate digits, indicate decimal points, or signal system status codes. Combined with the 4-wire single-digit LCD architecture, this creates a rugged, virtually zero-footprint service port that is instantly recognizable to technicians.
+
 Because the clickable display window (**S2**) serves both as a visual digit segment and as the **Confirm / Enter** key, a simple sequence rule eliminates any ambiguity without needing a fifth button:
 
 #### How the "S2-First" Input Logic Works:
@@ -138,8 +141,7 @@ python wrist_phone_dialer (1).py
 ```
 * **Massive Touch Targets:** Instead of cramming 10 tiny buttons onto a 1.5-inch watch face, the screen is divided into **4 generous, oversized touch zones** corresponding to segments **S1, S2, S3, and S4** (or using the **S2-First clickable display** gesture directly on the active digit).
 * **Effortless "Draw-to-Dial":** Users simply tap or swipe the large segment zones to draw each digit of the phone number in real time. Because the touch targets are huge, mis-taps are virtually eliminated—finally letting users dial a number comfortably on their wrist without needing a stylus or pin-point accuracy.
-#### Blink-Encoded Data Output
-To read values back from the unit on this single-digit window, the system communicates via **timed blinking patterns**—sequentially flashing multi-digit readings one character at a time, using distinct blink rhythms to separate digits, indicate decimal points, or signal system status codes. Combined with the 4-wire single-digit LCD architecture, this creates a rugged, virtually zero-footprint service port that is instantly recognizable to technicians.
+
 ### 📐 Flip-Up Mechanical Layout (8 mm Substrate Extension)
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
