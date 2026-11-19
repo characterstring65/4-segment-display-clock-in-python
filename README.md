@@ -134,7 +134,7 @@ For software developers building apps for smartwatches, wrist-mounted phones, or
 
 Run the script with:
 ```bash
-python wrist_phone_dialer.py
+python wrist_phone_dialer (1).py
 ```
 * **Massive Touch Targets:** Instead of cramming 10 tiny buttons onto a 1.5-inch watch face, the screen is divided into **4 generous, oversized touch zones** corresponding to segments **S1, S2, S3, and S4** (or using the **S2-First clickable display** gesture directly on the active digit).
 * **Effortless "Draw-to-Dial":** Users simply tap or swipe the large segment zones to draw each digit of the phone number in real time. Because the touch targets are huge, mis-taps are virtually eliminated—finally letting users dial a number comfortably on their wrist without needing a stylus or pin-point accuracy.
