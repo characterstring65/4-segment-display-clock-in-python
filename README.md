@@ -121,10 +121,21 @@ Because the clickable display window (**S2**) serves both as a visual digit segm
    * Because **S2** is not part of these digits, the user starts by pressing the surrounding keys (**S1**, **S3**, or **S4**) in any order to build the character on screen.
    * Once the digit is complete, a single press on the **LCD window (S2)** locks in the value (without illuminating S2) and advances to the next digit.
 
-### ⌚ Smartwatch & Software App: "Fat-Finger" Phone Dialer
+### ⌚ Smartwatch & Software App: "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
 
-For software developers building apps for smartwatches, wrist-mounted phones, or tiny wearable touchscreens, dialing a phone number on a traditional 10-key numeric keypad is notoriously frustrating—especially for users with larger fingers. While voice dialing and tiny T9 keypads already exist as alternatives, implementing this 4-segment matrix purely in software offers a remarkably **charming, tactile, and error-free solution**:
+For software developers building apps for smartwatches, wrist-mounted phones, or tiny wearable touchscreens, dialing a phone number on a traditional 10-key numeric keypad is notoriously frustrating—especially for users with larger fingers. While voice dialing and tiny T9 keypads exist, implementing this 4-segment matrix purely in software offers a remarkably **charming, tactile, and error-free alternative**:
 
+* **Symmetrical 2×2 Spatial Layout:** The interactive simulator (`wrist_phone_dialer.py`) divides the input area into **four equal-sized, oversized touch zones** that directly mirror the physical geometry of the digits themselves:
+  * **Top-Left (`S2 / Confirm`):** The active 1-digit preview window itself, framed by a clear dashed border to indicate it is a clickable button.
+  * **Top-Right (`S3`):** Upper horizontal bar.
+  * **Bottom-Left (`S1`):** Lower-left fluid curve.
+  * **Bottom-Right (`S4`):** Right-side vertical stem.
+* **Intuitive "S2-First" Touch Workflow:** Tapping the **Top-Left preview window** when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the desired digit is drawn using the four large zones, tapping that same preview window again confirms the digit and pushes it to the main multi-digit phone number display at the top.
+
+Run the script with:
+```bash
+python wrist_phone_dialer.py
+```
 * **Massive Touch Targets:** Instead of cramming 10 tiny buttons onto a 1.5-inch watch face, the screen is divided into **4 generous, oversized touch zones** corresponding to segments **S1, S2, S3, and S4** (or using the **S2-First clickable display** gesture directly on the active digit).
 * **Effortless "Draw-to-Dial":** Users simply tap or swipe the large segment zones to draw each digit of the phone number in real time. Because the touch targets are huge, mis-taps are virtually eliminated—finally letting users dial a number comfortably on their wrist without needing a stylus or pin-point accuracy.
 #### Blink-Encoded Data Output
