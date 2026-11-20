@@ -48,14 +48,6 @@ To give designers and engineers a realistic impression of real-world hardware le
 * **Checkerboard Overlap Edition (`micro_lcd_checkerboard_clock.py`):** Simulates the **50% dithered checkerboard overlap** between segments **S2** and **S4** (as well as the short inner accent stroke of **S4**, intentionally rendered with the same light-gray property to optimize visual balance), rendering single-active overlaps in soft light gray and dual-active overlaps (`4`, `8`, `9`) in solid black. This visual appearance represents the direct result of the simplified, single-layer manufacturing approach for the 4-segment display digit design.
 * **Note on Monitor Resolution:** At tiny scales (4–5 mm), standard computer monitors hit their pixel-grid (PPI) limit, making curves appear slightly pixelated up close—an artifact that does **not** occur on razor-sharp custom-etched LCD glass. To judge true physical legibility, scale the window down to ~6–8 mm and view your monitor from roughly **1 to 1.5 meters (3–5 feet)** away.
 
-### ⌚ "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
-An interactive software simulation demonstrating how this 4-segment matrix solves the frustration of dialing phone numbers on tiny smartwatch or wrist-phone touchscreens—especially for users with larger fingers.
-* **Symmetrical 2×2 Spatial Layout:** Divides the input area into four equal-sized, oversized touch zones mirroring the physical geometry of the digits: **Top-Left (`S2 / Confirm` clickable 1-digit preview window)**, **Top-Right (`S3`)**, **Bottom-Left (`S1`)**, and **Bottom-Right (`S4`)**.
-* **Effortless "S2-First" Touch Workflow:** Tapping the Top-Left preview window when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the digit is drawn, tapping that same preview window again confirms and appends it to the main phone number readout.
-
-### 🔘 1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`)
-An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4`, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
-
 ### Installation & Running
 Tkinter comes pre-installed with standard Python distributions:
 ```bash
@@ -65,6 +57,14 @@ python micro_lcd_checkerboard_clock.py
 ```
 
 ---
+
+### ⌚ "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
+An interactive software simulation demonstrating how this 4-segment matrix solves the frustration of dialing phone numbers on tiny smartwatch or wrist-phone touchscreens—especially for users with larger fingers.
+* **Symmetrical 2×2 Spatial Layout:** Divides the input area into four equal-sized, oversized touch zones mirroring the physical geometry of the digits: **Top-Left (`S2 / Confirm` clickable 1-digit preview window)**, **Top-Right (`S3`)**, **Bottom-Left (`S1`)**, and **Bottom-Right (`S4`)**.
+* **Effortless "S2-First" Touch Workflow:** Tapping the Top-Left preview window when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the digit is drawn, tapping that same preview window again confirms and appends it to the main phone number readout.
+
+### 🔘 1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`)
+An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4`, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
 
 ## 3. Hardware Architecture: Ultra-Compact Gadgets & SMD Probes
 
