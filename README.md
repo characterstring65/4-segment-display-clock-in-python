@@ -139,6 +139,13 @@ Because this fluid 4-segment layout is a rare, proprietary visual language—and
 * **Two-Way Challenge-Response Handshake:** The lock sends a data prompt (*challenge*) into the wearable through the gold contact pad, and the wearable responds by blinking the cryptographic answer back through the **4 LCD segments (`S1`–`S4`)** to the camera.
 * **Built-In Dual Layer of Security:** Unlike wireless RFID/NFC keys that can be skimmed from a distance, this system requires both **physical contact** and **direct line-of-sight optical verification**—combining the obscurity of an uncommon 4-segment visual encoding with a dynamic, rolling security code.
 
+### 🔋 Ultra-Low-Power "Smart Sticker" Mode: On-Demand Capacitor Readout
+
+For ultra-compact, battery-constrained hardware—such as thick adhesive **smart labels**, cold-chain medicine monitors, or sealed industrial sensors that must run for months or years on a microscopic coin cell—this architecture eliminates continuous display power drain entirely:
+
+* **Zero-Standby Power:** During normal operation, the LCD remains completely off, drawing zero current. A tiny SMD capacitor trickle-charges quietly in the background without straining the micro-battery.
+* **Press-to-Read Capacitor Discharge:** When a technician or user presses the tactile LCD window (or a dedicated micro-button) to check a reading, the mini-capacitor discharges to power the ultra-efficient 4-segment display just long enough to blink out or show the stored data. Once the capacitor depletes, the display automatically fades back to sleep—delivering maximum endurance in a sticker-thin form factor.
+
 ### 📐 Flip-Up Mechanical Layout (8 mm Substrate Extension)
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
