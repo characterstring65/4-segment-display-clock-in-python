@@ -62,7 +62,7 @@ An interactive software simulation demonstrating how this 4-segment matrix solve
 * **Effortless "S2-First" Touch Workflow:** Tapping the Top-Left preview window when blank activates segment **S2** (for digits `4, 5, 6, 8, 9`). Once the digit is drawn, tapping that same preview window again confirms and appends it to the main phone number readout.
 
 ### 🔘 1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`)
-An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4`, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
+An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4` with 3 blinks per segment, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
 
 ---
 
@@ -124,12 +124,19 @@ For embedded industrial hardware—such as a heat exchanger, pump controller, or
 ### 🔘 Ultimate Miniaturization: 1-Button "Single-Window Scan & y/n Confirm"
 For ultra-micro systems—such as sealed medical sensors, smart implants, or microscopic industrial nodes—where there is physically no room for even a single extra button around the bezel, the entire two-way interface collapses into **one clickable 1-digit LCD window**:
 
-1. **Full 4-Segment Scan & Non-Blocking Loop:** In input mode, the controller cycles sequentially through all remaining inactive segments (`S1` → `S2` → `S3` → `S4`). Pressing the LCD window while a segment blinks locks it in place.
+1. **Full 4-Segment Scan & Non-Blocking Loop:** In input mode, the controller cycles sequentially through all remaining inactive segments (`S1` → `S2` → `S3` → `S4`), blinking each segment 3 times. Pressing the LCD window while a segment blinks locks it in place.
 2. **Visual `y` / `n` Confirmation with Auto-Resume:** Once a valid digit (`0`–`9`) is formed and a full scan pass completes, the window alternates between two native confirmation glyphs:
    * **`S1` + `S2` + `S4` (forms a lowercase `y` for *Yes*):** Blinking together first. Pressing the window during this phase confirms and enters the digit.
    * **`S2` + `S3` (forms a lowercase `n` for *No*):** Blinking next. Pressing the window clears the current digit so you can re-enter it.
    * **Seamless Continuation:** If both `y` and `n` are ignored, the interface automatically returns to scanning the remaining segments so you can finish building a multi-stroke digit (such as locking `S1` first, letting `y`/`n` pass, and then adding `S3` to form `2`).
 3. **Continuous Processor Blink Readout:** Once a number is confirmed via `y`, the processor immediately echoes the stored value back by continuously blinking the entered digit(s) on the single window until reset or extended with additional digits.
+
+#### 🎨 Visual Geometry Balance: 12 Glyphs on 4 Segments (`0`–`9`, `y`, and `n`)
+In this 1-button interface, the 4-segment geometry is carefully tuned to support **12 distinct glyphs** (`0` through `9`, plus the confirmation characters **`y`** and **`n`**) without compromising numeric legibility:
+
+* **Digits First:** Because a 4-segment matrix operates at the absolute mathematical minimum, unmistakable readability of the ten digits remains the top priority—meaning the segment curves are only subtly nudged toward the alphabetic shapes.
+* **Natural `y` vs. Interpreted `n`:** While **`S1` + `S2` + `S4`** naturally forms a remarkably clear lowercase **`y`** (*Yes*), the **`S2` + `S3`** combination requires a bit of visual interpretation to read as a lowercase **`n`** (*No*).
+* **Contextual Clarity:** Because **`y`** and **`n`** appear exclusively at the exact same confirmation level immediately after digit entry, the strong visual contrast between the well-defined `y` and the lighter, stylized `n` makes the two states instantly distinguishable in practice.
 
 ### 🔐 Security Application: Wearable Optical-Contact Key (2FA Access)
 
@@ -184,3 +191,4 @@ Building a prototype at home does not require custom factory glass. Here are fou
 ## License
 
 This project is licensed under the **MIT License**. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
+
