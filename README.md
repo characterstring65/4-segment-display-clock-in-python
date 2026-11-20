@@ -56,8 +56,6 @@ cd 4-segment-display-clock-in-python
 python micro_lcd_checkerboard_clock.py
 ```
 
----
-
 ### ⌚ "Fat-Finger" Wrist Phone Dialer (`wrist_phone_dialer.py`)
 An interactive software simulation demonstrating how this 4-segment matrix solves the frustration of dialing phone numbers on tiny smartwatch or wrist-phone touchscreens—especially for users with larger fingers.
 * **Symmetrical 2×2 Spatial Layout:** Divides the input area into four equal-sized, oversized touch zones mirroring the physical geometry of the digits: **Top-Left (`S2 / Confirm` clickable 1-digit preview window)**, **Top-Right (`S3`)**, **Bottom-Left (`S1`)**, and **Bottom-Right (`S4`)**.
@@ -65,6 +63,8 @@ An interactive software simulation demonstrating how this 4-segment matrix solve
 
 ### 🔘 1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`)
 An interactive simulator for ultra-micro systems where the entire two-way interface collapses into **one clickable 1-digit LCD window** (scanning `S1` → `S2` → `S3` → `S4`, confirming via blinking `y` (`S1`+`S2`+`S4`) or clearing via `n` (`S2`+`S3`), auto-resuming scan if ignored, and continuously blinking back the confirmed value).
+
+---
 
 ## 3. Hardware Architecture: Ultra-Compact Gadgets & SMD Probes
 
