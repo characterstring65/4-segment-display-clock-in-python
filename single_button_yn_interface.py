@@ -420,7 +420,7 @@ class SingleButtonYNInterface:
         if s2 and s4:
             k_ov = self.segment_aan
             d_ov = 16
-        elif s4:
+        elif s2 or s4:
             k_ov = self.segment_grijs
             d_ov = 16
         else:
