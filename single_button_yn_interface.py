@@ -394,15 +394,14 @@ class SingleButtonYNInterface:
         k2 = self.segment_aan if s2 else self.segment_uit
         d2 = 16 if s2 else 1.2
         self.teken_schuine_boog(25 + (w - 25) / 2, (cy + 20 - h/2) + ((cy + 20) - (cy + 20 - h/2)) / 2, (w - 25) / 2, ((cy + 20) - (cy + 20 - h/2)) / 2, 135, 70, k2, d2)
-        self.teken_schuine_lijn(40, cy + 28 - 0.6 * h/4, w - 52, cy + 28 - 0.3 * h/2, k2, d2)
+        self.teken_schuine_lijn(40, cy + 28 - 0.6 * h/4, w - 62, cy + 28 - 0.3 * h/2, k2, d2)
 
         # S3
         k3 = self.segment_aan if s3 else self.segment_uit
         d3 = 16 if s3 else 1.2
         self.teken_schuine_lijn(48, cy + 10 - h/2, w - 5, cy + 10 - h/2, k3, d3)
         self.teken_schuine_lijn(40, cy - 60 - 0.6 * h/4, w - 65, cy - 55 - 0.3 * h/2, k3, d3)
-        self.teken_schuine_lijn(93, cy - 22 - 0.6 * h/4, w - 4, cy - 30 - 0.3 * h/2, k3, d3)
-        self.teken_schuine_lijn(w + 2, cy - h/2 + 28, w, cy + h/2 - 180, k3, d3)
+        self.teken_schuine_lijn(105, cy - 22 - 0.6 * h/4, w + 5, cy - 30 - 0.3 * h/2, k3, d3)
 
         # S4
         k4 = self.segment_aan if s4 else self.segment_uit
@@ -427,7 +426,18 @@ class SingleButtonYNInterface:
             k_ov = self.segment_uit
             d_ov = 1.2
         self.teken_schuine_lijn(w + 8, cy - h/2 + 150, w + 4, cy + h/2 - 65, k_ov, d_ov)
-        self.teken_schuine_lijn(w - 3, cy - h/2 + 120, w, cy + h/2 - 75, k_ov, d_ov)
+        self.teken_schuine_lijn(w - 1, cy - h/2 + 120, w + 1, cy + h/2 - 75, k_ov, d_ov)
+
+        if s3 and s4:
+            k_ow = self.segment_aan
+            d_ow = 16
+        elif s3 or s4:
+            k_ow = self.segment_grijs
+            d_ow = 16
+        else:
+            k_ow = self.segment_uit
+            d_ow = 1.2
+        self.teken_schuine_lijn(w + 2, cy - h/2 + 28, w, cy + h/2 - 180, k_ow, d_ow)
 
 if __name__ == "__main__":
     root = tk.Tk()
