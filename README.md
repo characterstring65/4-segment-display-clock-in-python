@@ -192,13 +192,18 @@ Building a prototype at home does not require custom factory glass. Here are fou
    Driving custom-filed acrylic LED segments directly from a tiny microcontroller is far simpler and more compact than wiring up legacy 7-segment decoders and external timers. Two great wrist-sized controller options are:
    * **ATtiny85 (SOIC-8 SMD):** Ultra-flat (`5 × 6 mm`), ideal for ultra-thin rings using a 5-pin Charlieplexed LED setup and a coin cell.
    * **Seeed Studio XIAO (RP2040 or nRF52840):** Thumbnail-sized (`21 × 17.5 mm`) with a completely flat underside, built-in USB-C programming, and enough I/O pins to drive the **8-wire 4x4 LED matrix** directly.
-
    **How to Build the XIAO Wristband:**
    1. **LED Matrix & Hand-Filed Lenses:** Mount 16 miniature SMD LEDs (`0603` or `0805`) on a slim strip of perfboard or flex-PCB wired in the standard **4×4 matrix** (4 rows + 4 columns with current-limiting resistors), and glue your hand-filed, polished acrylic (**PMMA**) segment lenses directly over the LEDs.
    2. **Direct 8-Wire Connection:** Solder the 4 row wires and 4 column wires straight to 8 digital pins (`D0`–`D7`) on the flat XIAO board. Use software PWM on the microcontroller to dim the `S2`/`S4` overlap LEDs to 50% brightness for that signature "light-gray" depth effect.
    3. **Hybrid Wake-Up & 15-Second Glow:** Mount a thin tactile push-button (`D8`) underneath the display module for the firm wake-up click, and place a small piece of copper tape (`D9`, capacitive touch) under the acrylic bezel. A firm press wakes the XIAO from deep sleep, lighting up the glowing segments for **15 seconds** of feather-light touch input before automatically powering back down.
    4. **Wearable Mounting:** Attach a flat CR2032 coin-cell holder (or micro-LiPo battery) alongside the XIAO onto a leather or silicone watch strap for a sleek, glowing timepiece or secret wrist keypad.
    * **Starter Firmware (`xiao_4segment_wristband.ino`):** A ready-to-compile Arduino sketch implementing the 4×4 matrix multiplexing, 50% PWM "light-gray" overlap dimming, and the 15-second wake-on-click glow timer is included in this repository *(note: provided as a conceptual starter template and not yet tested on physical hardware)*.
+7. **Large-Scale Mechanical Club Scoreboard (Sliding Lamellae Behind a Cutout Mask):**  
+   Commercial multi-meter scoreboards easily cost thousands of euros, but because this architecture requires only **4 actuators per digit** (instead of 7), a local sports club or community group can build a massive, eye-catching mechanical scoreboard using standard sheet materials and a basic Arduino—**saving a fortune at a fraction of commercial costs**:
+Because each digit requires only **4 actuators** (instead of 7), this architecture scales effortlessly to massive, multi-meter mechanical scoreboards—such as stadium displays, industrial hall counters, or kinetic art installations—driven by a standard Arduino:
+   * **Flat, Wind-Proof Sliding Design:** Rather than hinged flaps that catch wind and require deep housings, the front face is a rigid **cutout mask** with the 4 fluid segment openings (`S1`–`S4`). Behind this mask, four flat sliding plates (lamellae) slide inward from the outer perimeter into their respective slots.
+   * **Zero-Collision Outer Routing:** Because `S1`, `S2`, `S3`, and `S4` enter from distinct outer edges of the character frame, each sliding plate has ample room on the outside for its own linear guide rail and motor/servo linkage without interfering with neighboring segments.
+   * **Layered Overlap Handling:** At the intersection of **S2** and **S4**, the sliding plates simply run in parallel tracks one behind the other. The frontmost active plate cleanly covers the intersection in solid contrast—or, by making the rear lamella light gray and the front lamella solid black/white, makers can even recreate the signature two-tone depth effect on a monumental scale.
 
 ---
 
