@@ -186,6 +186,8 @@ Building a prototype at home does not require custom factory glass. Here are fou
    Want to retrofit an old digital alarm clock or `CD4511` / `74LS47` driver chip? Connect 7-segment outputs `b`, `d`, and `f` directly to **S4**, **S1**, and **S2**. For **S3** (active on `2, 3, 5, 7, 8, 9`, omitting `0` and `6`), use a single tiny logic gate combining lines `a`, `b`, and `e`:
    $$\text{S3} = a \land (b \lor \neg e)$$
    *(i.e., **S3 = a AND (b OR NOT e)** — Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
+5. **Wearable "Glow-on-Wake" LED Jewelry (15-Second Active Window):**  
+   For DIY wearables like a custom LED ring or pendant using hand-ground acrylic segments, pair a **firm mechanical wake-up click** with a **capacitive touch surface** and a short **15-second active timer**. Pressing the piece firmly wakes the circuit, illuminating the glowing LED segments while enabling feather-light touch input (resetting the 15-second timer with each tap). Once left untouched for 15 seconds, both the LEDs and touch sensor automatically power down—preventing pocket triggers while turning the readout into an eye-catching, battery-saving piece of jewelry.
 
 ---
 
