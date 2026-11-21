@@ -188,6 +188,17 @@ Building a prototype at home does not require custom factory glass. Here are fou
    *(i.e., **S3 = a AND (b OR NOT e)** — Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
 5. **Wearable "Glow-on-Wake" LED Jewelry (15-Second Active Window):**  
    For DIY wearables like a custom LED ring or pendant using hand-ground acrylic segments, pair a **firm mechanical wake-up click** with a **capacitive touch surface** and a short **15-second active timer**. Pressing the piece firmly wakes the circuit, illuminating the glowing LED segments while enabling feather-light touch input (resetting the 15-second timer with each tap). Once left untouched for 15 seconds, both the LEDs and touch sensor automatically power down—preventing pocket triggers while turning the readout into an eye-catching, battery-saving piece of jewelry.
+6. **Complete DIY Wristband Project: Hand-Filed Acrylic LEDs + Mini-MCU:**  
+   Driving custom-filed acrylic LED segments directly from a tiny microcontroller is far simpler and more compact than wiring up legacy 7-segment decoders and external timers. Two great wrist-sized controller options are:
+   * **ATtiny85 (SOIC-8 SMD):** Ultra-flat (`5 × 6 mm`), ideal for ultra-thin rings using a 5-pin Charlieplexed LED setup and a coin cell.
+   * **Seeed Studio XIAO (RP2040 or nRF52840):** Thumbnail-sized (`21 × 17.5 mm`) with a completely flat underside, built-in USB-C programming, and enough I/O pins to drive the **8-wire 4x4 LED matrix** directly.
+
+   **How to Build the XIAO Wristband:**
+   1. **LED Matrix & Hand-Filed Lenses:** Mount 16 miniature SMD LEDs (`0603` or `0805`) on a slim strip of perfboard or flex-PCB wired in the standard **4×4 matrix** (4 rows + 4 columns with current-limiting resistors), and glue your hand-filed, polished acrylic (**PMMA**) segment lenses directly over the LEDs.
+   2. **Direct 8-Wire Connection:** Solder the 4 row wires and 4 column wires straight to 8 digital pins (`D0`–`D7`) on the flat XIAO board. Use software PWM on the microcontroller to dim the `S2`/`S4` overlap LEDs to 50% brightness for that signature "light-gray" depth effect.
+   3. **Hybrid Wake-Up & 15-Second Glow:** Mount a thin tactile push-button (`D8`) underneath the display module for the firm wake-up click, and place a small piece of copper tape (`D9`, capacitive touch) under the acrylic bezel. A firm press wakes the XIAO from deep sleep, lighting up the glowing segments for **15 seconds** of feather-light touch input before automatically powering back down.
+   4. **Wearable Mounting:** Attach a flat CR2032 coin-cell holder (or micro-LiPo battery) alongside the XIAO onto a leather or silicone watch strap for a sleek, glowing timepiece or secret wrist keypad.
+   * **Starter Firmware (`xiao_4segment_wristband.ino`):** A ready-to-compile Arduino sketch implementing the 4×4 matrix multiplexing, 50% PWM "light-gray" overlap dimming, and the 15-second wake-on-click glow timer is included in this repository *(note: provided as a conceptual starter template and not yet tested on physical hardware)*.
 
 ---
 
