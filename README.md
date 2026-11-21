@@ -1,3 +1,4 @@
+<img width="1110" height="1200" alt="image" src="https://github.com/user-attachments/assets/70ec7b4a-7fd4-427f-8ad5-4d0a9df24d37" />
 # 4-Segment Display Clock in Python (Pure 4-Segment Matrix)
 
 An elegant, minimalistic desktop clock and hardware display architecture built in Python. It uses a custom, fluid **4-segment numeric matrix** to display time and measurement data. 
