@@ -222,6 +222,8 @@ Building a prototype at home does not require custom factory glass. Here are eig
      * **Option B — Full Lower-Loop Closure:** For clubs willing to invest extra workshop time in longer guide tracks, `+L1` can be extended into a full `180°` lower-right loop (`0`, `6`, `8`) for an even more closed silhouette.
      * **Best of Both Worlds:** Behind the scenes, the board still runs on the ultra-cheap 4-segment mechanical drive, while on the front, those few extra wooden linkages bridge just enough gaps to satisfy the traditionalists in the club.
 
+![Scoreboard Digits with Short-Stroke Mechanical Logic Levers](scoreboard_lever_digits(6).png)
+
 ![Scoreboard Digits with Mechanical Logic Levers](scoreboard_lever_digits.png)
 
 8. **Tiny Logic Helper PCB for Enhanced LED Digits (Electronic Equivalent of the Scoreboard Levers):**  
