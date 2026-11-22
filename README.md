@@ -173,18 +173,18 @@ This passive dual-layer glass design provides true solid-black overlaps without 
 
 ---
 
-> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I \times R$):**  
+> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I 	imes R$):**  
 > Before jumping into the DIY workbench, here is a playful easter egg for the multimeter shunt equation mentioned earlier. Spoken aloud with a calm, dramatic pause—*"U... I-R"* (sounding like *"You... I times R"*)—Ohm's Law already has a nice ring to it. Better yet, you can "count" it out in binary on a standard QWERTY keyboard:  
 > 1. Count **1** (`01` in binary) by resting your right index finger straight forward—landing right on **`U`**.  
 > 2. Count **2** (`10` in binary) by lifting your index finger and raising your right middle finger *(strictly for binary counting purposes, of course!)*—landing right on **`I`**.  
 > 3. Having exhausted both finger states on that hand, carry over to your left index finger—landing straight on **`R`**.  
-> **U — I — R** ($U = I \times R$). Completely unnecessary, yet mathematically undeniable!
+> **U — I — R** ($U = I 	imes R$). Completely unnecessary, yet mathematically undeniable!
 
 ---
 
 ## 5. Maker's Corner: Fun & Low-Cost DIY Tips
 
-Building a prototype at home does not require custom factory glass. Here are seven simple, rewarding weekend projects for tinkerers and clubs:
+Building a prototype at home does not require custom factory glass. Here are eight simple, rewarding weekend projects for tinkerers and clubs:
 
 1. **Hand-Ground Acrylic LED Lenses (Zero-Tooling Display):**  
    Build the 4x4 matrix using inexpensive individual SMD LEDs on a simple PCB, then file and polish tiny lightguide lenses out of clear acrylic (PMMA) into the exact curves of **S1–S4**. Placed over the LEDs, they diffuse light into a warm, organic glow. You can even recreate the **two-tone light-gray overlap** without code: feed the shared `S2`/`S4` overlap LED from both lines through two resistors and isolating diodes (one line active = soft half-brightness; both lines active = full brightness), or use `analogWrite` PWM on a microcontroller. A status LED can also be added across two matrix lines using simple resistor-diode voltage-drop balancing so the status LED lights at lower drive thresholds while higher-threshold green/blue segment LEDs stay off.
@@ -194,8 +194,7 @@ Building a prototype at home does not require custom factory glass. Here are sev
    Gently peel the entire outer reflector foil off the back of a standard reflective LCD and replace it with a piece of **plain white paper or frosted plastic** as a diffuser. Place a small LED at the edge or behind it to turn any passive LCD into a softly backlit screen.
 4. **Driving from a Standard 7-Segment Clock IC (No Code Needed):**  
    Want to retrofit an old digital alarm clock or `CD4511` / `74LS47` driver chip? Connect 7-segment outputs `b`, `d`, and `f` directly to **S4**, **S1**, and **S2**. For **S3** (active on `2, 3, 5, 7, 8, 9`, omitting `0` and `6`), use a single tiny logic gate combining lines `a`, `b`, and `e`:
-   $$	ext{S3} = a \land (b \lor 
-eg e)$$
+   $$\text{S3} = a \land (b \lor \neg e)$$
    *(i.e., **S3 = a AND (b OR NOT e)** — Note: This logic works directly on DC-driven LEDs. For AC-driven static LCD drivers, decode the phase against the `COM` signal first using XOR gates, or route line `a` through a simple `CD4066` analog bilateral switch.)*
 5. **Wearable "Glow-on-Wake" LED Jewelry (15-Second Active Window):**  
    For DIY wearables like a custom LED ring or pendant using hand-ground acrylic segments, pair a **firm mechanical wake-up click** with a **capacitive touch surface** and a short **15-second active timer**. Pressing the piece firmly wakes the circuit, illuminating the glowing LED segments while enabling feather-light touch input (resetting the 15-second timer with each tap). Once left untouched for 15 seconds, both the LEDs and touch sensor automatically power down—preventing pocket triggers while turning the readout into an eye-catching, battery-saving piece of jewelry.
@@ -219,15 +218,17 @@ eg e)$$
      2. **2-Motor Plotter Shuttle:** Using standard DIY 3D-printer/plotter parts (one belt-driven stepper motor to slide horizontally along the 32-pin row, and a second small motor/cam to push the selected pin upward), an Arduino rapidly updates only the segments that need to change—saving 14 motors while keeping mechanical alignment forgiving and reliable.
    * **Mechanical Linkage "Logic Levers" for a More Familiar, Closed-Form Look:**  
      Whenever a club committee or volunteer group debates building a custom scoreboard, there is inevitably a strong voice concerned about aesthetics—asking whether a minimalist 4-segment typeface looks familiar enough for spectators. Because a large wooden or plastic scoreboard has ample room behind the front mask, club tinkerers can resolve this using simple pivoting levers and connecting rods between the four main lamellae—requiring **zero extra motors or code**—to give the digits **a much more familiar, closed-form look** without abandoning the 4-segment foundation. Building and tuning these mechanical linkages certainly takes patience and elbow grease, yet it is entirely achievable—and putting in collective effort to overcome a challenge is, after all, the very definition of sport:
-     * **Closing the Lower Loop (`0`, `6`, and `8`):** A mechanical rocker linkage connected to `S1` automatically slides a lower-right arc piece into view whenever `0` (solo `S1`), `6` (`S1`+`S2`, with `S3` off), or `8` (all 4 segments on) is formed—turning the open curve into a closed loop while retracting cleanly for `2`, `3`, and `5`.
-     * **Center Waist Bar for Digit `2`:** A dual-lever catch engaged when `S1` and `S3` are active (while `S2` and `S4` remain off) nudges a center diagonal stroke into the mask to give the numeral `2` a sweeping waist, automatically pushed aside whenever `S2` or `S4` enters.
+     * **Option A — Short-Stroke Compromise (`+L1` 60° Arc & `+L2` Waist, Shown Below):** Uses a compact `60°` upper-left arc extension (`+L1` for `0`, `2`, `6`, `8`) and a short diagonal waist (`+L2` for `2`). Because the travel distance is tiny, the auxiliary lamellae glide lightly and are much easier for club volunteers to align and build.
+     * **Option B — Full Lower-Loop Closure:** For clubs willing to invest extra workshop time in longer guide tracks, `+L1` can be extended into a full `180°` lower-right loop (`0`, `6`, `8`) for an even more closed silhouette.
      * **Best of Both Worlds:** Behind the scenes, the board still runs on the ultra-cheap 4-segment mechanical drive, while on the front, those few extra wooden linkages bridge just enough gaps to satisfy the traditionalists in the club.
+
 ![Scoreboard Digits with Mechanical Logic Levers](scoreboard_lever_digits.png)
+
 8. **Tiny Logic Helper PCB for Enhanced LED Digits (Electronic Equivalent of the Scoreboard Levers):**  
-   For LED displays using hand-ground acrylic lenses, the exact same visual refinements used on the mechanical scoreboard (**`L1`** extending the left arc of `S1` for `0, 6, 8`, and **`L2`** adding a center waist stroke for `2`) can be driven automatically by a postage-stamp-sized logic board listening directly to the four existing segment lines (`S1`–`S4`)—requiring zero changes to the main driver or code:
-   * **Left-Arc Extension (`L1` for `0`, `6`, `8`):** $\text{L1} = S1 \land (\neg S3 \lor S4)$
+   For LED displays using hand-ground acrylic lenses, the exact same visual refinements used on the mechanical scoreboard (**`L1`** extending the upper-left arc of `S1` for `0, 2, 6, 8`, and **`L2`** adding a center waist stroke for `2`) can be driven automatically by a postage-stamp-sized logic board listening directly to the four existing segment lines (`S1`–`S4`)—requiring zero changes to the main driver or code:
+   * **Upper-Left Arc Extension (`L1` for `0`, `2`, `6`, `8`):** $\text{L1} = S1 \land (\neg S3 \lor (\neg S2 \land \neg S4))$
    * **Center Waist Accent (`L2` for `2`):** $\text{L2} = S1 \land S3 \land \neg S2 \land \neg S4$
-   *(Easily implemented on a tiny auxiliary PCB using a single standard quad-NAND logic IC such as a `74HC00`, keeping the core 4-line drive intact while giving larger stationary LED displays a fuller, more familiar silhouette.)*
+   *(Easily implemented on a tiny auxiliary PCB using standard quad-NAND logic gates such as a `74HC00`, keeping the core 4-line drive intact while giving larger stationary LED displays a fuller, more familiar silhouette.)*
 
 ---
 
