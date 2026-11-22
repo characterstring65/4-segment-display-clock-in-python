@@ -88,6 +88,8 @@ To eliminate internal driver chips, transistors, or diode arrays inside a narrow
 | **Row 3** | Digit 3 - S1 | Digit 3 - S2 | Digit 3 - S3 | Digit 3 - S4 |
 | **Row 4** | Decimal 1 (`.`) | Decimal 2 (`.`) | Decimal 3 (`.`) | **MSD (The '1')** |
 
+• Scalable to High-End Multi-Segment LCDs: This 4-line encoding also forms a strong foundation for premium LCD modules—where an onboard decoder chip translates the four incoming drive wires into many finely tailored sub-segments, delivering near-ideal typography without increasing external pin count.
+
 ---
 
 ## 4. Ergonomic, Optical & Mechanical Innovations
