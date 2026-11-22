@@ -214,6 +214,11 @@ eg e)$$
      * **Center Waist Bar for Digit `2`:** A dual-lever catch engaged when `S1` and `S3` are active (while `S2` and `S4` remain off) nudges a center diagonal stroke into the mask to give the numeral `2` a sweeping waist, automatically pushed aside whenever `S2` or `S4` enters.
      * **Best of Both Worlds:** Behind the scenes, the board still runs on the ultra-cheap 4-segment mechanical drive, while on the front, those few extra wooden linkages bridge just enough gaps to satisfy the traditionalists in the club.
 ![Scoreboard Digits with Mechanical Logic Levers](scoreboard_lever_digits.png)
+8. **Tiny Logic Helper PCB for Enhanced LED Digits (Electronic Equivalent of the Scoreboard Levers):**  
+   For LED displays using hand-ground acrylic lenses, the exact same visual refinements used on the mechanical scoreboard (**`L1`** extending the left arc of `S1` for `0, 6, 8`, and **`L2`** adding a center waist stroke for `2`) can be driven automatically by a postage-stamp-sized logic board listening directly to the four existing segment lines (`S1`–`S4`)—requiring zero changes to the main driver or code:
+   * **Left-Arc Extension (`L1` for `0`, `6`, `8`):** $\text{L1} = S1 \land (\neg S3 \lor S4)$
+   * **Center Waist Accent (`L2` for `2`):** $\text{L2} = S1 \land S3 \land \neg S2 \land \neg S4$
+   *(Easily implemented on a tiny auxiliary PCB using a single standard quad-NAND logic IC such as a `74HC00`, keeping the core 4-line drive intact while giving larger stationary LED displays a fuller, more familiar silhouette.)*
 
 ---
 
