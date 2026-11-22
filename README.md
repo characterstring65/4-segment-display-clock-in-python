@@ -213,6 +213,7 @@ eg e)$$
      * **Closing the Lower Loop (`0`, `6`, and `8`):** A mechanical rocker linkage connected to `S1` automatically slides a lower-right arc piece into view whenever `0` (solo `S1`), `6` (`S1`+`S2`, with `S3` off), or `8` (all 4 segments on) is formed—turning the open curve into a closed loop while retracting cleanly for `2`, `3`, and `5`.
      * **Center Waist Bar for Digit `2`:** A dual-lever catch engaged when `S1` and `S3` are active (while `S2` and `S4` remain off) nudges a center diagonal stroke into the mask to give the numeral `2` a sweeping waist, automatically pushed aside whenever `S2` or `S4` enters.
      * **Best of Both Worlds:** Behind the scenes, the board still runs on the ultra-cheap 4-segment mechanical drive, while on the front, those few extra wooden linkages bridge just enough gaps to satisfy the traditionalists in the club.
+![Scoreboard Digits with Mechanical Logic Levers](scoreboard_lever_digits.png)
 
 ---
 
