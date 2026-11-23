@@ -88,7 +88,7 @@ To eliminate internal driver chips, transistors, or diode arrays inside a narrow
 | **Row 3** | Digit 3 - S1 | Digit 3 - S2 | Digit 3 - S3 | Digit 3 - S4 |
 | **Row 4** | Decimal 1 (`.`) | Decimal 2 (`.`) | Decimal 3 (`.`) | **MSD (The '1')** |
 
-• Scalable to High-End Multi-Segment LCDs: This 4-line encoding also forms a strong foundation for premium LCD modules—where an onboard decoder chip translates the four incoming drive wires into many finely tailored sub-segments, delivering near-ideal typography without increasing external pin count.
+* **Scalable to High-End Multi-Segment LCDs:** This 4-line encoding also forms a strong foundation for premium LCD modules—where an onboard decoder chip translates the four incoming drive wires into many finely tailored sub-segments, delivering near-ideal typography without increasing external pin count.
 
 ---
 
@@ -161,6 +161,13 @@ For ultra-compact, battery-constrained hardware—such as thick adhesive **smart
 Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the final digit**:
 * **6 mm Internal Hinge Zone:** Rotates inside the pen housing, allowing ITO traces to widen into protected contact pads for an elastomeric zebra-strip or micro-FPC connector, safely shielded from handling and dust.
 * **2 mm Transition Bridge:** Provides a clean, borderless exit from the chassis where all matrix traces route cleanly in parallel to the edge pads.
+* **Solid-Black Intersection via Rear Semi-Circular Mini-PCB (Zero Extra Hinge Wires):**  
+  Because a flip-up display sits recessed halfway into a round pen barrel, a natural **semi-circular cavity** remains behind the glass. Instead of a 50% gray checkerboard mask, the `S2`/`S4` intersection is etched as a **single solid island** routed to the rear edge of the glass alongside `S2` and `S4` (**3 short local pins**). Inside the rear cavity, a tiny strip PCB forms a passive **2-input AC OR-gate** using two individual SMD zener diodes (`Z1` from `S2` and `Z2` from `S4` feeding the shared island, paired with an on-glass high-resistance ITO bleed resistor to discharge residual capacitance):
+  ```text
+  S2 ──[ Z1 ]──┬──► Shared Intersection Island (Solid Black)
+  S4 ──[ Z2 ]──┘         └──[ ~1–2 MΩ ITO Bleed ]──► Backplane (COM)
+  ```
+  The zener thresholds isolate `S2` and `S4` from shorting each other while allowing active AC pulses from either (or both) lines to drive the intersection **solid black**—keeping full single-layer viewing angles with **zero extra wires** through the hinge.
 
 ### 🔬 Specialized Architecture: 4-Wire "Zero-COM" Single-Digit Dual-Layer LCD
 For ultra-miniature, single-digit applications where physical thickness or harsh operating environments prohibit mounting a local driver IC or PCB behind the glass, a single complete digit (`0`–`9`) can be driven using **exclusively 4 wires**—achieving a 1:1 ratio between segments and pins with zero onboard electronics.
@@ -175,12 +182,12 @@ This passive dual-layer glass design provides true solid-black overlaps without 
 
 ---
 
-> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I 	times R$):**  
+> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I \times R$):**  
 > Before jumping into the DIY workbench, here is a playful easter egg for the multimeter shunt equation mentioned earlier. Spoken aloud with a calm, dramatic pause—*"U... I-R"* (sounding like *"You... I times R"*)—Ohm's Law already has a nice ring to it. Better yet, you can "count" it out in binary on a standard QWERTY keyboard:  
 > 1. Count **1** (`01` in binary) by resting your right index finger straight forward—landing right on **`U`**.  
 > 2. Count **2** (`10` in binary) by lifting your index finger and raising your right middle finger *(strictly for binary counting purposes, of course!)*—landing right on **`I`**.  
 > 3. Having exhausted both finger states on that hand, carry over to your left index finger—landing straight on **`R`**.  
-> **U — I — R** ($U = I 	imes R$). Completely unnecessary, yet mathematically undeniable!
+> **U — I — R** ($U = I \times R$). Completely unnecessary, yet mathematically undeniable!
 
 ---
 
@@ -226,8 +233,6 @@ Building a prototype at home does not require custom factory glass. Here are nin
 
 <img width="1344" height="972" alt="scoreboard_lever_digits (6)" src="https://github.com/user-attachments/assets/1edb3370-8c2b-4885-9b66-cfaed86e047e" />
 
-![Scoreboard Digits with Mechanical Logic Levers](scoreboard_lever_digits.png)
-
 8. **Tiny Logic Helper PCB for Enhanced LED Digits (Electronic Equivalent of the Scoreboard Levers):**  
    For LED displays using hand-ground acrylic lenses, the exact same visual refinements used on the mechanical scoreboard (**`L1`** extending the upper-left arc of `S1` for `0, 2, 6, 8`, and **`L2`** adding a center waist stroke for `2`) can be driven automatically by a postage-stamp-sized logic board listening directly to the four existing segment lines (`S1`–`S4`)—requiring zero changes to the main driver or code:
    * **Upper-Left Arc Extension (`L1` for `0`, `2`, `6`, `8`):** $\text{L1} = S1 \land (\neg S3 \lor (\neg S2 \land \neg S4))$
@@ -237,9 +242,11 @@ Building a prototype at home does not require custom factory glass. Here are nin
    Instead of carving or buying ten separate number stamps, makers can create a pocket-sized set of just **four transparent acrylic stamp blocks**—one for each fluid stroke (**`S1`**, **`S2`**, **`S3`**, and **`S4`**)—aligned against a simple L-shaped corner guide:
    * **Authentic Overprint Shading:** Just like the LCD's dithered checkerboard overlap, stamping **`S2`** and **`S4`** over the same spot (for digits `4`, `8`, and `9`) naturally deposits a **double layer of ink** at the intersection—creating a rich, darker tonal overlap that mimics traditional letterpress and hand-lettered calligraphy.
    * **Endless Creative Styling:** Because the four stamps can be inked in different colors (such as a light-gray or pastel `S2` paired with a bold black `S4`), crafters can stamp custom, fluid numerals onto journals, numbered art prints, and packaging using only four small blocks.
+
 ---
 
 ## License
 
 This project is licensed under the **MIT License**. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
+
 
