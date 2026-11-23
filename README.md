@@ -167,7 +167,7 @@ Designed for an 8 mm thick pen chassis, the LCD glass extends **8 mm past the fi
   S2 ──[ Z1 ]──┬──► Shared Intersection Island (Solid Black)
   S4 ──[ Z2 ]──┘         └──[ ~1–2 MΩ ITO Bleed ]──► Backplane (COM)
   ```
-  The zener thresholds isolate `S2` and `S4` from shorting each other while allowing active AC pulses from either (or both) lines to drive the intersection **solid black**—keeping full single-layer viewing angles with **zero extra wires** through the hinge.
+  The zener thresholds isolate `S2` and `S4`( respectively `S3` and `S4`, making **4 short local pins** in total) from shorting each other while allowing active AC pulses from either (or both) lines to drive the intersection **solid black**—keeping full single-layer viewing angles with **zero extra wires** through the hinge.
 
 ### 🔬 Specialized Architecture: 4-Wire "Zero-COM" Single-Digit Dual-Layer LCD
 For ultra-miniature, single-digit applications where physical thickness or harsh operating environments prohibit mounting a local driver IC or PCB behind the glass, a single complete digit (`0`–`9`) can be driven using **exclusively 4 wires**—achieving a 1:1 ratio between segments and pins with zero onboard electronics.
