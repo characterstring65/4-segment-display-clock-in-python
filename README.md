@@ -175,7 +175,7 @@ This passive dual-layer glass design provides true solid-black overlaps without 
 
 ---
 
-> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I 	imes R$):**  
+> **💡 Intermezzo — A Geeky Mnemonic & Binary Finger Joke ($U = I 	times R$):**  
 > Before jumping into the DIY workbench, here is a playful easter egg for the multimeter shunt equation mentioned earlier. Spoken aloud with a calm, dramatic pause—*"U... I-R"* (sounding like *"You... I times R"*)—Ohm's Law already has a nice ring to it. Better yet, you can "count" it out in binary on a standard QWERTY keyboard:  
 > 1. Count **1** (`01` in binary) by resting your right index finger straight forward—landing right on **`U`**.  
 > 2. Count **2** (`10` in binary) by lifting your index finger and raising your right middle finger *(strictly for binary counting purposes, of course!)*—landing right on **`I`**.  
