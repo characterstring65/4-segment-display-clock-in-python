@@ -186,7 +186,7 @@ This passive dual-layer glass design provides true solid-black overlaps without 
 
 ## 5. Maker's Corner: Fun & Low-Cost DIY Tips
 
-Building a prototype at home does not require custom factory glass. Here are eight simple, rewarding weekend projects for tinkerers and clubs:
+Building a prototype at home does not require custom factory glass. Here are nine simple, rewarding weekend projects for tinkerers and clubs:
 
 1. **Hand-Ground Acrylic LED Lenses (Zero-Tooling Display):**  
    Build the 4x4 matrix using inexpensive individual SMD LEDs on a simple PCB, then file and polish tiny lightguide lenses out of clear acrylic (PMMA) into the exact curves of **S1–S4**. Placed over the LEDs, they diffuse light into a warm, organic glow. You can even recreate the **two-tone light-gray overlap** without code: feed the shared `S2`/`S4` overlap LED from both lines through two resistors and isolating diodes (one line active = soft half-brightness; both lines active = full brightness), or use `analogWrite` PWM on a microcontroller. A status LED can also be added across two matrix lines using simple resistor-diode voltage-drop balancing so the status LED lights at lower drive thresholds while higher-threshold green/blue segment LEDs stay off.
@@ -233,7 +233,10 @@ Building a prototype at home does not require custom factory glass. Here are eig
    * **Upper-Left Arc Extension (`L1` for `0`, `2`, `6`, `8`):** $\text{L1} = S1 \land (\neg S3 \lor (\neg S2 \land \neg S4))$
    * **Center Waist Accent (`L2` for `2`):** $\text{L2} = S1 \land S3 \land \neg S2 \land \neg S4$
    *(Easily implemented on a tiny auxiliary PCB using standard quad-NAND logic gates such as a `74HC00`, keeping the core 4-line drive intact while giving larger stationary LED displays a fuller, more familiar silhouette.)*
-
+9. **Modular 4-Piece Calligraphy Stamp Set (Natural Ink-Overprint Depth):**  
+   Instead of carving or buying ten separate number stamps, makers can create a pocket-sized set of just **four transparent acrylic stamp blocks**—one for each fluid stroke (**`S1`**, **`S2`**, **`S3`**, and **`S4`**)—aligned against a simple L-shaped corner guide:
+   * **Authentic Overprint Shading:** Just like the LCD's dithered checkerboard overlap, stamping **`S2`** and **`S4`** over the same spot (for digits `4`, `8`, and `9`) naturally deposits a **double layer of ink** at the intersection—creating a rich, darker tonal overlap that mimics traditional letterpress and hand-lettered calligraphy.
+   * **Endless Creative Styling:** Because the four stamps can be inked in different colors (such as a light-gray or pastel `S2` paired with a bold black `S4`), crafters can stamp custom, fluid numerals onto journals, numbered art prints, and packaging using only four small blocks.
 ---
 
 ## License
