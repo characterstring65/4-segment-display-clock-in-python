@@ -47,6 +47,10 @@ Every simulator, printable test sheet, and hardware implementation in this repos
 * **SMD Kelvin Probe Pen & Modular Shunt:** Uses a 9-conductor retractable cable (8 display wires + 1 Kelvin Sense wire), whole-display blinking for negative polarity, and a separate pocket-carried external shunt cable ($I = U / R$) to keep heat out of the pen.
 * **1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`):** Scans `S1 → S2 → S3 → S4` (3 blinks each) on a single clickable 1-digit window, confirming via `y` (`S1+S2+S4`) or clearing via `n` (`S2+S3`), backed by a hybrid mechanical-wake + capacitive-touch switch.
 * **Wearable Optical-Contact 2FA Key & Smart Sticker Mode:** Uses a gold contact pad + optical camera readout of the 4 LCD segments for two-way challenge-response authentication, or a trickle-charged SMD capacitor for zero-standby press-to-read adhesive labels.
+* **Ultra-Compact Kids' Calculator Watch (`kids_4seg_calculator.py`) — *(Tier 2)*:**  
+    Traditional calculator watches cram 16 or more pinhead-sized buttons onto a tiny bezel—making them nearly impossible to use on a child's narrow wrist. This Python simulator models an **ultra-miniature, low-cost kids' LCD calculator watch** built around just **8 generous, tactile keys**:
+    * **Anatomical 4-Key Digit Builder (`S1`–`S4`):** Four buttons arranged in the physical shape of a digit (`S3` top bar, `S2` upper-left, `S1` lower-left, `S4` tall right stem) let children "draw" each numeral directly onto a classic greenish-gray **Tier 2 reflective LCD** (complete with 50% gray `S2`/`S4` overlap shading).
+    * **4-Key Math Cluster (`+`, `−`, `÷`, and the 4-Stage `= / OK / × / C` Multi-Tap Key):** Saves even more space on the tiny watch case by combining four actions into one smart button—**1st press:** confirm digit; **2nd press:** confirm full number / calculate (`=`); **3rd press:** multiply (`×`); **4th press:** clear (`C`).
 
 <img width="1110" height="1200" alt="4segment_12_glyphs_overview" src="https://github.com/user-attachments/assets/d9043960-f300-462b-af84-aeb73ccbb571" />
 
