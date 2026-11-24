@@ -1,3 +1,4 @@
+<img width="1400" height="1020" alt="tier1_all_digits_clock_style" src="https://github.com/user-attachments/assets/33272eef-a16a-4f20-8273-aebc8e23e82b" />
 
 # 4-Segment Display Architecture (The 6 Visual Tiers)
 
