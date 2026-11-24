@@ -1,3 +1,5 @@
+<img width="1110" height="1200" alt="4segment_12_glyphs_overview" src="https://github.com/user-attachments/assets/c05124a5-b1c0-4cdd-b774-f0731f44d974" />
+<img width="1110" height="1200" alt="4segment_12_glyphs_overview" src="https://github.com/user-attachments/assets/a7a27d8e-26cb-4122-a063-1ca83ad37a5f" />
 <img width="1400" height="1020" alt="tier1_all_digits_clock_style" src="https://github.com/user-attachments/assets/33272eef-a16a-4f20-8273-aebc8e23e82b" />
 
 # 4-Segment Display Architecture (The 6 Visual Tiers)
@@ -46,6 +48,9 @@ Every simulator, printable test sheet, and hardware implementation in this repos
 * **SMD Kelvin Probe Pen & Modular Shunt:** Uses a 9-conductor retractable cable (8 display wires + 1 Kelvin Sense wire), whole-display blinking for negative polarity, and a separate pocket-carried external shunt cable ($I = U / R$) to keep heat out of the pen.
 * **1-Button "Single-Window Scan & y/n Confirm" (`single_button_yn_interface.py`):** Scans `S1 → S2 → S3 → S4` (3 blinks each) on a single clickable 1-digit window, confirming via `y` (`S1+S2+S4`) or clearing via `n` (`S2+S3`), backed by a hybrid mechanical-wake + capacitive-touch switch.
 * **Wearable Optical-Contact 2FA Key & Smart Sticker Mode:** Uses a gold contact pad + optical camera readout of the 4 LCD segments for two-way challenge-response authentication, or a trickle-charged SMD capacitor for zero-standby press-to-read adhesive labels.
+
+<img width="1110" height="1200" alt="4segment_12_glyphs_overview" src="https://github.com/user-attachments/assets/d9043960-f300-462b-af84-aeb73ccbb571" />
+
 
 ### Tier 3: Solid-Black Intersection
 * **Flip-Up Pen LCD with Rear Semi-Circular Mini-PCB (Zero Extra Hinge Wires):**  
