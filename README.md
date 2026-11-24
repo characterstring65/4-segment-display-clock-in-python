@@ -242,6 +242,10 @@ Building a prototype at home does not require custom factory glass. Here are nin
    Instead of carving or buying ten separate number stamps, makers can create a pocket-sized set of just **four transparent acrylic stamp blocks**—one for each fluid stroke (**`S1`**, **`S2`**, **`S3`**, and **`S4`**)—aligned against a simple L-shaped corner guide:
    * **Authentic Overprint Shading:** Just like the LCD's dithered checkerboard overlap, stamping **`S2`** and **`S4`** over the same spot (for digits `4`, `8`, and `9`) naturally deposits a **double layer of ink** at the intersection—creating a rich, darker tonal overlap that mimics traditional letterpress and hand-lettered calligraphy.
    * **Endless Creative Styling:** Because the four stamps can be inked in different colors (such as a light-gray or pastel `S2` paired with a bold black `S4`), crafters can stamp custom, fluid numerals onto journals, numbered art prints, and packaging using only four small blocks.
+10. **Senior Memory & Date-Recall Wall Clock (1-Tap 4-Button Remote Game):**  
+    For older adults who occasionally lose track of the date, this architecture turns a wall clock into a gentle, dignified daily memory game using an ultra-simple **4-button remote control** (`S1`–`S4` arranged in their natural 2×2 spatial layout):
+    * **One-Tap "First-Stroke" Guessing:** While the clock always displays the current time, the date window remains dark until the user taps the **single characteristic starting segment** of today's date digit (`S1` for `0, 3, 6`; `S4` for `1, 7`; `S3` for `2, 5, 9`; `S2` for `4, 8`).
+    * **Gentle Feedback & Daily Score:** Because each button maps to only a few digits, a wrong guess is never more than two or three days off—the date display simply stays dark for another try. Pressing the matching button illuminates the full date immediately and awards a point, turning daily orientation into an effortless, rewarding habit.
 
 ---
 
