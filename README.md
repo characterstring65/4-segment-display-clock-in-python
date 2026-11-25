@@ -1,3 +1,4 @@
+<img width="181" height="199" alt="S2" src="https://github.com/user-attachments/assets/ec2c0bbe-62b8-4576-bf3f-a0f4e6543e7a" />
 
 <img width="1400" height="1020" alt="tier1_all_digits_clock_style" src="https://github.com/user-attachments/assets/33272eef-a16a-4f20-8273-aebc8e23e82b" />
 
