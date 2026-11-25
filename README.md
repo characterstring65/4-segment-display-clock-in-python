@@ -162,7 +162,10 @@ Center Waist Accent (L2 for 2): $\text{L2} = S1 \land S3 \land \neg S2 \land \ne
 Instead of carving or buying ten separate number stamps, makers can create a pocket-sized set of just four transparent acrylic stamp blocks—one for each fluid stroke (S1, S2, S3, and S4)—aligned against a simple L-shaped corner guide:
 Authentic Overprint Shading: Just like a solid-black overlap, stamping S2 and S4 over the same spot (for digits 4, 8, and 9) naturally deposits a double layer of ink at the intersection—creating a rich, darker tonal overlap that mimics traditional letterpress and hand-lettered calligraphy.
 Endless Creative Styling: Because the four stamps can be inked in different colors (such as a light-gray or pastel S2 paired with a bold black S4), crafters can stamp custom, fluid numerals onto journals, numbered art prints, and packaging using only four small blocks.
-
+10. **Tactile Relay-Driven Numeric Display for Blind & Visually Impaired Users — *(Tier 1)*:**  
+    Standard 7-segment electromechanical displays become overly bulky and expensive when built with off-the-shelf relays, as seven coils must be packed beneath every single digit. With only **4 segments per digit (`S1`–`S4`)**, four sturdy relays fit comfortably beneath a compact, finger-sized tactile cell:
+    * **Direct Armature Mounting:** Lightweight, smooth-edged segment bars (`S1`–`S4`) are mounted directly onto the moving armature arms of four standard relays, rising cleanly through slots in the faceplate when energized so users can read the fluid numeral shapes by touch.
+    * **Parallel Alignment Stops (Nubs):** Small mechanical stop nubs beneath the faceplate catch each lightweight segment as the relay releases, ensuring every stroke settles back into an exact, parallel resting position without wobble or complex linear guides.
 
 License
 
