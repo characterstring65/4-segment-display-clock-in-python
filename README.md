@@ -78,6 +78,8 @@ Every simulator, printable test sheet, and hardware implementation in this repos
 
 ### Tier 6: Iconic & Calligraphically Complete (High-End Decoded LCDs)
 * **Scalable to Premium Multi-Segment Modules:** This 4-line encoding also serves as a clean, low-pin-count foundation for higher-end LCD designs—where an onboard decoder chip translates the four incoming drive wires into a larger array of finely tailored sub-segments, delivering near-ideal, calligraphically complete typography without increasing external pin count.
+* **Stockpile "Blank-PCB-on-Glass" Semi-Finished Modules (Post-Assembly Patterning):**  
+  To eliminate custom LCD tooling delays and high minimum order quantities (MOQs) for smaller runs, manufacturers can mass-produce a single universal LCD glass (with the 8-wire hinge bus on one edge and a fine sub-segment array on the rear edge) already bonded to a **blank, unpatterned copper PCB** in the rear cavity. Whenever a specific logic circuit, zener bridge, or decoder chip is needed later, the copper traces on the attached PCB can be custom-patterned on demand—ideally via clean, chemical-free **laser isolation milling** so no etching fluids ever touch the assembled glass.
 
 ---
 
