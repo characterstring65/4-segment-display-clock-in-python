@@ -138,7 +138,10 @@ Spoken aloud with a calm pause—"U... I-R" ("You... I times R")—Ohm's Law can
 
 ## 4. Maker's Corner: Fun & Low-Cost DIY Tips
 
-Building a prototype at home does not require custom factory glass. Here are nine simple, rewarding weekend projects for tinkerers, crafters, and clubs—each tagged with its corresponding **Visual Tier**:
+> **💡 Good to Know — Custom LCD Glass in Small Batches Is Surprisingly Affordable:**  
+> Many makers assume custom LCD displays require massive factory runs and prohibitive tooling fees. In reality, when a display uses **simple single-layer ITO etching**, generous trace tolerances, and a **minimal pin count** (such as this 4-segment architecture), small-batch custom glass fabrication is remarkably inexpensive—well within reach for hobbyists, local clubs, and small-series prototypes.
+
+And if you want to build or experiment right at your workbench without ordering glass first, here are eleven simple, rewarding weekend projects—each tagged with its corresponding **Visual Tier**:
 
 1. **Hand-Ground Acrylic LED Lenses (Zero-Tooling Display) — *(Tier 2 & Tier 3)*:**  
    Build the 4×4 matrix using inexpensive individual SMD LEDs on a simple PCB, then file and polish tiny lightguide lenses out of clear acrylic (PMMA) into the exact curves of **S1–S4**. Placed over the LEDs, they diffuse light into a warm, organic glow. You can recreate the **two-tone light-gray overlap (Tier 2)** without code by feeding the shared `S2`/`S4` overlap LED from both lines through two resistors and isolating diodes (one line active = soft half-brightness; both lines active = full brightness), or use `analogWrite` PWM on a microcontroller (or drive it at full brightness for a **Tier 3 solid-black/solid-glow** look). A status LED can also be added across two matrix lines using simple resistor-diode voltage-drop balancing so the status LED lights at lower drive thresholds while higher-threshold green/blue segment LEDs stay off.
