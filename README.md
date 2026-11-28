@@ -87,9 +87,13 @@ Every simulator, printable test sheet, and hardware implementation in this repos
 To keep single-layer LCD glass tooling at rock-bottom cost while preserving the option to attach a rear zener-logic or decoder PCB later, all transparent ITO traces are routed cleanly from right to left across every digit without a single crossover inside the active viewing area:
 
 * **Three Parallel Horizontal Corridors:**
-  * **Top Corridor:** Routes **`S3`** and the **upper half of `S4`** (sharing a light-gray 50% checkerboard overlap at the top-right corner).
-  * **Center S-Curve Corridor:** Splitting **`S4`** into upper and lower halves opens a clean central channel between the upper and lower curves—allowing **`S2`**, the **lower half of `S4`** (with its two diagonal inner strokes), and their light-gray checkerboard overlap to pass smoothly from right to left.
+  * **Top Corridor:** Routes **`S3`** and the **upper half of `S4`** across the top edge.
+  * **Center S-Curve Corridor:** Splitting **`S4`** into upper and lower halves opens a clean central channel between the upper and lower curves—allowing **`S2`**, the **lower half of `S4`** (with its two diagonal inner strokes), and the auxiliary traces to pass smoothly from right to left.
   * **Bottom Corridor:** Routes **`S1`** along the lower baseline.
+* **Split `S4` Checkerboard Overlap Sub-Pads (Gray Zones):**  
+  Because **`S4`** crosses **`S3`** at the top and **`S2`** at two zones lower down, the gray overlap islands are divided into separate interleaved checkerboard halves rather than shorted together:
+  * **Upper Overlap (Top-Right Gray Zone):** Divided into separate sub-pads wired respectively to **`S3`** and the **two upper `S4` leads**.
+  * **Lower Overlaps (Middle & Lower-Right Gray Zones):** Divided into separate sub-pads wired respectively to **`S2`** and the **two lower `S4` leads**.
 * **End-Cap `S4` Reunion (Only 1 Edge Crossover):** The separated upper and lower halves of **`S4`** are rejoined outside the active viewing area at the far ends of the glass—resulting in a complete 3½- or 4-digit layout with **only one trace crossover at the very edge**.
 * **3 Isolated Auxiliary Islands (`o` Pads for Optional Rear PCB Logic):**
   * **Top Pad (`o`):** Connects to the upper slanted segment of the vertical stroke used to form the **`2`**.
